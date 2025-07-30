@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
@@ -16,10 +17,12 @@ const Navbar = () => {
         <nav className="w-full bg-[#171717] text-white z-50 relative">
             <div className="flex items-center justify-between px-6 lg:px-16 py-6">
                 <div className="ml-2 lg:ml-24">
-                    <img
+                    <Image
                         src="https://cogentsolutions.ae/views/img/logos/cogent-logo-01.png"
                         alt="Cogent Solutions Logo"
-                        className="h-14"
+                        width={200} // Adjust based on actual image ratio or preference
+                        height={56} // Tailwind's h-14 = 56px
+                        className="h-14 w-auto"
                     />
                 </div>
 

@@ -2,6 +2,15 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+interface FormData {
+  first_name: string;
+  last_name: string;
+  job_title: string;
+  company: string;
+  phone: string;
+  email: string;
+  company_website_url: string;
+}
 
 const RegisterSection = () => {
   const sectionRef = useRef(null);
@@ -13,7 +22,7 @@ const RegisterSection = () => {
     text: string;
   } | null>(null);
 
-  const validate = (data: Record<string, any>) => {
+  const validate = (data: FormData) : Record<string, string> => {
     const newErrors: Record<string, string> = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[0-9+\-\s()]{7,20}$/;
@@ -42,13 +51,13 @@ const RegisterSection = () => {
     const formData = new FormData(form);
 
     const data = {
-      first_name: formData.get('first_name'),
-      last_name: formData.get('last_name'),
-      job_title: formData.get('job_title'),
-      company: formData.get('company'),
-      phone: formData.get('phone'),
-      email: formData.get('email'),
-      company_website_url: formData.get('company_website_url'),
+      first_name: formData.get('first_name') as string,
+      last_name: formData.get('last_name') as string,
+      job_title: formData.get('job_title') as string,
+      company: formData.get('company') as string,
+      phone: formData.get('phone') as string,
+      email: formData.get('email') as string,
+      company_website_url: formData.get('company_website_url') as string,
     };
 
     const validationErrors = validate(data);

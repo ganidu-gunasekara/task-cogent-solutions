@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import { HiOutlineEnvelope, HiOutlineMapPin, HiOutlinePhone } from 'react-icons/hi2';
@@ -15,10 +16,34 @@ const Footer = () => {
                         </p>
                         <h3 className="text-lg font-semibold mb-3">Awards</h3>
                         <div className="flex flex-wrap gap-4">
-                            <img src="https://cogentsolutions.ae/views/img/logos/BPW-2024_2.png" alt="Award 1" className="h-20 w-20 object-contain" />
-                            <img src="https://cogentsolutions.ae/views/img/logos/bestwork-04.png" alt="Award 2" className="h-20 w-20 object-contain" />
-                            <img src="https://cogentsolutions.ae/views/img/logos/bestwork-03.png" alt="Award 3" className="h-20 w-20 object-contain" />
-                            <img src="https://cogentsolutions.ae/views/img/logos/bestwork-01.png" alt="Award 4" className="h-20 w-20 object-contain" />
+                            <Image
+                                src="https://cogentsolutions.ae/views/img/logos/BPW-2024_2.png"
+                                alt="Award 1"
+                                width={80}
+                                height={80}
+                                className="h-20 w-20 object-contain"
+                            />
+                            <Image
+                                src="https://cogentsolutions.ae/views/img/logos/bestwork-04.png"
+                                alt="Award 2"
+                                width={80}
+                                height={80}
+                                className="h-20 w-20 object-contain"
+                            />
+                            <Image
+                                src="https://cogentsolutions.ae/views/img/logos/bestwork-03.png"
+                                alt="Award 3"
+                                width={80}
+                                height={80}
+                                className="h-20 w-20 object-contain"
+                            />
+                            <Image
+                                src="https://cogentsolutions.ae/views/img/logos/bestwork-01.png"
+                                alt="Award 4"
+                                width={80}
+                                height={80}
+                                className="h-20 w-20 object-contain"
+                            />
                         </div>
                     </div>
 

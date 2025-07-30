@@ -12,7 +12,7 @@ const AboutFinastra = () => {
             Committed to unlocking the potential of people, businesses and communities everywhere,
             its vision is to accelerate the future of Open Finance through technology and collaboration,
             and its pioneering approach is why it is trusted by ~8,100 financial institutions, including
-            45 of the world's top 50 banks.
+            45 of the world&apos;s top 50 banks.
             <br /><br />
             For more information, visit <a href="https://www.finastra.com">www.finastra.com</a>.
           </p>
