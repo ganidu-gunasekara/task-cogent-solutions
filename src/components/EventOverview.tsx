@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import TopReasonsSection from "./TopReasonsSection";
-
+import { motion } from "framer-motion";
 const EventOverview = () => {
     return (
         <>
@@ -8,17 +10,29 @@ const EventOverview = () => {
                 <div className="flex flex-col md:flex-row gap-8 items-start pt-[100px] pr-4 pb-[100px] pl-4">
 
                     {/* Title */}
-                    <div className="flex w-full md:w-1/4 justify-center text-center">
+                    <motion.div
+                        className="flex w-full md:w-1/4 justify-center text-center"
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                    >
                         <h3 className="text-4xl md:text-5xl font-light leading-tight">
                             Event <br className="hidden md:block" />
                             Overview
                         </h3>
-                    </div>
+                    </motion.div>
 
 
 
                     {/* Content */}
-                    <div className="w-full md:w-3/4 space-y-6 text-lg md:text-xl text-justify">
+                    <motion.div
+                        className="w-full md:w-3/4 space-y-6 text-lg md:text-xl text-justify"
+                        initial={{ y: 100, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                        viewport={{ once: true }}
+                    >
                         <p>
                             Join us on April 9th in Cairo, Egypt, for Finastra's Universal Banking Forum, "Reimagine Banking: Adapt. Evolve.
                             Thrive." This exclusive event is designed to help you navigate and excel in the rapidly evolving banking landscape.
@@ -42,9 +56,16 @@ const EventOverview = () => {
                             Don't miss this opportunity to enhance your knowledge, skills, and network in the finance and banking sector. Register
                             today and secure your place at this must-attend event!
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
-                <TopReasonsSection />
+                <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                    viewport={{ once: true }}
+                >
+                    <TopReasonsSection />
+                </motion.div>
             </section>
         </>
     );

@@ -1,4 +1,6 @@
+"use client";
 import React from 'react';
+import { motion } from "framer-motion";
 
 const speakers = [
     {
@@ -96,31 +98,44 @@ const SpeakersSection = () => {
     return (
         <div className="bg-gradient-to-r from- to-[#343434] p-14">
             <div className="container mx-auto px-4">
-                <h3 className="text-3xl md:text-4xl font-semibold text-center text-white mb-10">
+                <motion.h3
+                    className="text-4xl md:text-4xl text-center text-white mb-10"
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                    viewport={{ once: true }}
+                >
                     Our Speakers
-                </h3>
-                <div className="flex flex-wrap justify-center gap-8">
+                </motion.h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
                     {speakers.map((speaker, index) => (
-                        <div key={index}>
-                            <div className="rounded-t-[2rem] w-full max-w-xs text-white bg-gradient-to-b from-[#2e003e] to-[#222121]">
-                                <div className="overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                    <img
-                                        src={speaker.image}
-                                        alt={speaker.name}
-                                        className="w-full h-auto aspect-square object-cover rounded-[2rem] "
-                                    />
-                                    <div className="text-center p-4 mt-auto">
-                                        <h5 className="font-bold text-base">{speaker.name}</h5>
-                                        <p className="text-sm text-gray-300 mt-1">{speaker.title}</p>
-                                        {speaker.company && (
-                                            <p className="text-sm text-gray-400 mt-1">{speaker.company}</p>
-                                        )}
-                                    </div>
+                        <motion.div
+                            key={index}
+                            className="w-full max-w-xs rounded-t-[5rem] rounded-b-2xl text-white bg-gradient-to-b from-[#2e003e] to-[#222121]"
+                            initial={{ y: 100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                <img
+                                    src={speaker.image}
+                                    alt={speaker.name}
+                                    className="w-full h-auto aspect-square object-cover rounded-[5rem]"
+                                />
+                                <div className="text-center p-4 mt-auto">
+                                    <h5 className="font-bold text-base">{speaker.name}</h5>
+                                    <p className="text-sm text-gray-300 mt-1">{speaker.title}</p>
+                                    {speaker.company && (
+                                        <p className="text-sm text-gray-400 mt-1">{speaker.company}</p>
+                                    )}
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
+                z
+
             </div>
         </div>
     );

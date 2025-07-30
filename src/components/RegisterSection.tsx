@@ -17,7 +17,7 @@ const RegisterSection = () => {
           </div>
 
           {/* Right Form */}
-          <div className="w-full md:w-7/12">
+          <div className="w-full md:w-7/12 flex items-center justify-center">
             <div className="w-full max-w-[600px] bg-gradient-to-l from-[#444343] to-[#1a1a1a] backdrop-blur-[15px] rounded-[15px] border border-[rgba(7,7,7,0.2)] p-6 md:p-10 text-white shadow-[0_4px_20px_rgba(28,28,28,0.2)]">
               <form id="registration-form" className="space-y-6">
                 {[

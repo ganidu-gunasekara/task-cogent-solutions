@@ -1,5 +1,6 @@
+"use client";
 import React from 'react';
-
+import { motion } from "framer-motion";
 const agendaItems = [
     {
         time: '09:30 AM',
@@ -81,16 +82,26 @@ const AgendaSection = () => {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-col md:flex-row">
                     <div className="w-full md:w-1/4 text-center mb-8 md:mb-0">
-                        <h3 className="text-4xl pb-5 bg-gradient-to-r from-[#694ED6] to-[#C137A2] text-transparent bg-clip-text">
+                        <motion.h3
+                            className="text-4xl pb-5 bg-gradient-to-r from-[#694ED6] to-[#C137A2] text-transparent bg-clip-text"
+                            initial={{ y: 100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                            viewport={{ once: true }}
+                        >
                             Agenda
-                        </h3>
+                        </motion.h3>
                     </div>
                     <div className="w-full md:w-3/4">
                         <div className="bg-[#f9f1ff80] text-gray-800 p-6 rounded-lg">
                             {agendaItems.map((item, idx) => (
-                                <div
+                                <motion.div
                                     key={idx}
                                     className={`border-b border-solid border-[#dd05d4] py-6 ${idx === 0 ? 'pt-0' : ''}`}
+                                    initial={{ y: 100, opacity: 0 }}
+                                    whileInView={{ y: 0, opacity: 1 }}
+                                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                                    viewport={{ once: true }}
                                 >
                                     <div className="flex flex-col sm:flex-row gap-4">
                                         <div className="w-full sm:w-1/4">
@@ -116,7 +127,7 @@ const AgendaSection = () => {
                                             )}
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
