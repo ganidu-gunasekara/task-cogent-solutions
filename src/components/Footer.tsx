@@ -7,7 +7,6 @@ const Footer = () => {
         <footer className="bg-black text-white pt-10 pb-6">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-col lg:flex-row justify-between gap-10 pb-10 border-b border-white/10">
-                    {/* Left Column */}
                     <div className="lg:w-1/2">
                         <h3 className="text-xl font-semibold mb-4">Cogent Solutions™</h3>
                         <p className="mb-6 text-sm text-white/80 max-w-md">
@@ -23,7 +22,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Right Column */}
                     <div className="lg:w-1/2">
                         <h3 className="text-lg font-semibold mb-4">Our Office</h3>
                         <ul className="space-y-6 text-sm text-white/80">
@@ -68,7 +66,6 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                {/* Bottom Bar */}
                 <div className="flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-white/60">
                     <p>© 2025 Cogent Solutions Event Management LLC. All Rights Reserved</p>
 

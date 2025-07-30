@@ -1,21 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import TopReasonsSection from "./TopReasonsSection";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 const EventOverview = () => {
+    const eventOverview = useRef(null);
+    const isInView = useInView(eventOverview, { amount: 0.2 });
+
+    const topReasonsRef = useRef(null);
+    const isTopReasonsInView = useInView(topReasonsRef, { amount: 0.2 });
+
     return (
         <>
-            <section className="w-full px-4 py-16 text-white bg-[#171717] mx-auto">
+            <section ref={eventOverview} className="w-full px-4 py-16 text-white bg-[#171717] mx-auto">
                 <div className="flex flex-col md:flex-row gap-8 items-start pt-[100px] pr-4 pb-[100px] pl-4">
-
-                    {/* Title */}
                     <motion.div
                         className="flex w-full md:w-1/4 justify-center text-center"
-                        initial={{ x: -100, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true }}
+                        initial={{ x: -100, opacity: 0 }} // Start from left
+                        animate={isInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                     >
                         <h3 className="text-4xl md:text-5xl font-light leading-tight">
                             Event <br className="hidden md:block" />
@@ -23,15 +26,11 @@ const EventOverview = () => {
                         </h3>
                     </motion.div>
 
-
-
-                    {/* Content */}
                     <motion.div
                         className="w-full md:w-3/4 space-y-6 text-lg md:text-xl text-justify"
                         initial={{ y: 100, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
+                        animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        viewport={{ once: true }}
                     >
                         <p>
                             Join us on April 9th in Cairo, Egypt, for Finastra's Universal Banking Forum, "Reimagine Banking: Adapt. Evolve.
@@ -58,14 +57,15 @@ const EventOverview = () => {
                         </p>
                     </motion.div>
                 </div>
-                <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                    viewport={{ once: true }}
-                >
-                    <TopReasonsSection />
-                </motion.div>
+                <div ref={topReasonsRef}>
+                    <motion.div
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={isTopReasonsInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                    >
+                        <TopReasonsSection />
+                    </motion.div>
+                </div>
             </section>
         </>
     );

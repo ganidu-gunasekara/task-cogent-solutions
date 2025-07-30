@@ -5,15 +5,14 @@ const TopReasonsSection = () => {
     return (
         <section className="w-[95%] mx-auto text-white">
             <div
-                className="flex flex-col md:flex-row justify-between gap-6 md:gap-[100px] px-4 md:px-6 pt-5 pb-8 rounded-[40px] border border-dashed border-white/30 max-w-[1200px] mx-auto"
+                className="flex flex-col md:flex-row justify-between gap-6 md:gap-1 px-4 md:px-6 pt-5 pb-8 rounded-[40px] border border-dashed border-white/30 max-w-[1200px] mx-auto"
                 style={{
                     background: "linear-gradient(84deg, #1c015d -7.52%, #8045ce 108.41%)",
                     backgroundSize: "cover",
                     position: "relative",
                 }}
             >
-                {/* Image */}
-                <div className="w-full md:w-1/2 px-6">
+                <div className="w-full md:w-3/5 px-6">
                     <Image
                         src="https://cogentsolutions.ae/events/upcoming-physical-events/reimagine-banking-finastra/asset/images/Finastra-UB-Egypt-Benefits-of-attending%20SMALL.jpg"
                         alt="Finastra Event"
@@ -23,7 +22,6 @@ const TopReasonsSection = () => {
                     />
                 </div>
 
-                {/* Content */}
                 <div className="w-full md:w-1/2 md:pl-[33px] px-13">
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 leading-snug">
                         TOP REASONS WHY THIS IS THE ONLY CONFERENCE YOU NEED TO ATTEND IN 2025

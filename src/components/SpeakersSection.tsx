@@ -1,6 +1,6 @@
 "use client";
-import React from 'react';
-import { motion } from "framer-motion";
+import React, { useRef } from 'react';
+import { motion, useInView } from "framer-motion";
 
 const speakers = [
     {
@@ -95,15 +95,16 @@ const speakers = [
 ];
 
 const SpeakersSection = () => {
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { amount: 0.01 });
     return (
-        <div className="bg-gradient-to-r from- to-[#343434] p-14">
+        <div ref={sectionRef} className="bg-gradient-to-r from- to-[#343434] p-14">
             <div className="container mx-auto px-4">
                 <motion.h3
                     className="text-4xl md:text-4xl text-center text-white mb-10"
                     initial={{ y: 100, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                    viewport={{ once: true }}
+                    animate={isInView ? { y: 0, opacity: 1 } : {}}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 >
                     Our Speakers
                 </motion.h3>
@@ -113,9 +114,8 @@ const SpeakersSection = () => {
                             key={index}
                             className="w-full max-w-xs rounded-t-[5rem] rounded-b-2xl text-white bg-gradient-to-b from-[#2e003e] to-[#222121]"
                             initial={{ y: 100, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                            viewport={{ once: true }}
+                            animate={isInView ? { y: 0, opacity: 1 } : {}}
+                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 + index * 0.1 }}
                         >
                             <div className="overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <img
@@ -134,8 +134,6 @@ const SpeakersSection = () => {
                         </motion.div>
                     ))}
                 </div>
-                z
-
             </div>
         </div>
     );
