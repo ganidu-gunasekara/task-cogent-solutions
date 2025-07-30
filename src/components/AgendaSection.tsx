@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from 'react';
 import { motion, useInView } from "framer-motion";
+import AgendaItem from './AgendaItem';
 const agendaItems = [
     {
         time: '09:30 AM',
@@ -97,43 +98,7 @@ const AgendaSection = () => {
                     <div className="w-full md:w-3/4">
                         <div className="bg-[#f9f1ff80] text-gray-800 p-6 rounded-lg">
                             {agendaItems.map((item, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    className={`border-b border-solid border-[#dd05d4] py-6 ${idx === 0 ? "pt-0" : ""}`}
-                                    initial={{ y: 100, opacity: 0 }}
-                                    animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
-                                    transition={{
-                                        duration: 0.8,
-                                        ease: "easeOut",
-                                        delay: 0.3 + idx * 0.1,
-                                    }}
-                                >
-                                    <div className="flex flex-col sm:flex-row gap-4">
-                                        <div className="w-full sm:w-1/4">
-                                            <div className="text-lg mb-1">{item.time}</div>
-                                            {item.note && (
-                                                <span className="bg-[#0d6efd] text-white text-xs px-3 py-1 rounded shadow inline-block">
-                                                    {item.note}
-                                                </span>
-                                            )}
-                                        </div>
-                                        <div className="w-full sm:w-3/4">
-                                            <h5 className="text-lg mb-1">{item.title}</h5>
-                                            {Array.isArray(item.subtitle) ? (
-                                                <div className="text-sm text-gray-600 space-y-1">
-                                                    {item.subtitle.map((line, subIdx) => (
-                                                        <p key={subIdx}>{line}</p>
-                                                    ))}
-                                                </div>
-                                            ) : (
-                                                idx !== 0 &&
-                                                item.subtitle && (
-                                                    <p className="text-sm text-gray-600">{item.subtitle}</p>
-                                                )
-                                            )}
-                                        </div>
-                                    </div>
-                                </motion.div>
+                                <AgendaItem key={idx} {...item} index={idx} isInView={isInView} />
                             ))}
                         </div>
                     </div>
